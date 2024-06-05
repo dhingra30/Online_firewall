@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+	<meta charset="utf-8">
+	<title>Firewall Simulator</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="Style/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="terminal" id="o">
+            <div class="messages"></div>
+            <div class="input-wrapper">
+                <span class="name"></span>
+                <input type="text" />
+            </div>
+        </div>
+
+        <div class="terminal" id="i">
+            <div class="messages"></div>
+            <div class="input-wrapper">
+                <span class="name"></span>
+                <input type="text" />
+            </div>
+        </div>
+    </div>
+
+    <!--<p><strong>Outsider</strong>: Upload rules</p>-->
+    <!--<input type="file" id="oFile" />-->
+    <!--<button id="oDownload">Download outsider rules</button>-->
+    <!--<p><strong>Insider</strong>: Upload rules</p>-->
+    <!--<input type="file" id="iFile" />-->
+    <!--<button id="iDownload">Download insider rules</button>-->
+
+    <div class="wrapper f">
+        <div class="col">
+            <label class="btn btn-primary">
+                Upload rules<input type="file" id="oFile" style="display: none;">
+            </label>
+            <label class="btn btn-primary">
+                Download rules<input type="file" id="oDownload" style="display: none;">
+            </label>
+        </div>
+        <div class="col">
+            <label class="btn btn-primary">
+                Upload rules<input type="file" id="iFile" style="display: none;">
+            </label>
+            <label class="btn btn-primary">
+                Download rules<input type="file" id="iDownload" style="display: none;">
+            </label>
+        </div>
+    </div>
+
+
+
+    <div class="col-lg-6 col-sm-6 col-12"
+        <h4></h4>
+    </div>
+
+    <div class="col-lg-6 col-sm-6 col-12">
+    </div>
+
+    <script src="dist/build.js"></script>
+    <script>
+        $('#o input').focus();
+        $('.terminal').click(function(event) {
+            $(event.delegateTarget).find('input').focus();
+        })
+
+    </script>
+    
+
+  <h1>Firewall Simulator</h1>
+  <h4>by Rahul</h4>
+
+    <div>
+      <h2>Instructions</h2>
+      The terminal on the left work as a terminal outside the network and is called "outsider" and the terminal on the right represents the inside network and is called "insider".
+
+      <h2>Starter Commands</h2>
+      Below are a small set of commands to get you started:
+      <ol>
+	<li><strong>Insider</strong>: Type <code>ipconfig</code> into the insider's terminal to learn what its IP address is. </li>
+	<li><strong>Outsider</strong>: In the outsider terminal run <code>nmap -p 80 [Insider IP address]</code> to find out if port 80, which is commonly used by internet connections, is open. </li>
+	<li><strong>Insider</strong>: Close port 80 by typing <code>iptables -A INPUT -dport 80 -j DROP</code></li>
+	<li><strong>Outsider</strong>: Run <code>nmap -p 80 [Insider IP address]</code> again to see if you have successfully closed the port.</li>
+	<li><strong>Outsider</strong>: Change the outsider's IP so they can test from a different location. <code>set ip 166.155.72.10</code>, this is not a standard linux command, but is very handy for our WebApp.</li>
+      </ol>
+    </div>
+
+
+
+</body>
+</html>

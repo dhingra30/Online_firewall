@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Consolas, monaco, monospace;
+    font-size: 12px;
+}
+body {
+    padding: 60px 30px;
+}
+
+p {
+    margin: 0;
+}
+
+.wrapper {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.terminal {
+    flex-basis: 48%;
+    background: #181818;
+    min-height: 395px;
+    padding: 10px;
+    margin-bottom: 25px;
+}
+
+.terminal .messages {
+    
+    display: flex;
+    flex-direction: column;
+    
+    /*overflow-y: scroll;*/
+}
+
+.terminal input {
+    width: 100%;
+    background: #181818;
+    border: 0;
+    color: #ffffff;
+    height: 15px;
+    line-height: 15px;
+}
+
+.terminal p {
+    color: #ffffff;
+    line-height: 15px;
+}
+
+.terminal input:focus {
+    outline: 0;
+}
+
+.input-wrapper {
+    color: #ffffff;
+    display: flex;
+    height: 15px;
+}
+
+.input-wrapper span {
+    padding: 0 5px 0 0;
+    height: 15px;
+}
